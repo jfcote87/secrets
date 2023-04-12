@@ -3,7 +3,6 @@
 package certify
 
 import (
-	"context"
 	"encoding/json"
 
 	"github.com/jfcote87/certify"
@@ -11,7 +10,7 @@ import (
 )
 
 // Service return service defined by key
-func Service(ctx context.Context, key string) (*certify.Service, error) {
+func Service(key string) (*certify.Service, error) {
 	def, err := secrets.Get(secrets.ServiceCertify, key)
 	if err != nil {
 		return nil, err

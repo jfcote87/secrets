@@ -4,7 +4,6 @@ package esign
 
 import (
 	"bytes"
-	"context"
 	"encoding/json"
 
 	"github.com/jfcote87/esign"
@@ -13,7 +12,7 @@ import (
 )
 
 // Credential returns credential for esign calls
-func Credential(ctx context.Context, key, apiUserName string, tk *oauth2.Token, u *esign.UserInfo) (esign.Credential, error) {
+func Credential(key, apiUserName string, tk *oauth2.Token, u *esign.UserInfo) (esign.Credential, error) {
 	def, err := secrets.Get(secrets.ServiceDocuSign, key)
 	if err != nil {
 		return nil, err

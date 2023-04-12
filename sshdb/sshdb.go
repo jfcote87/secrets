@@ -3,7 +3,6 @@ package sshdb
 
 import (
 	"bytes"
-	"context"
 	"database/sql"
 	"encoding/json"
 
@@ -12,7 +11,7 @@ import (
 )
 
 // Connections returns DBs from  from TunnelConfig
-func Connections(ctx context.Context, driver sshdb.Driver, key string) ([]*sql.DB, error) {
+func Connections(driver sshdb.Driver, key string) ([]*sql.DB, error) {
 	def, err := secrets.Get(secrets.ServiceSSHDB, key)
 	if err != nil {
 		return nil, err

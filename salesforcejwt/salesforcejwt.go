@@ -3,8 +3,6 @@
 package salesforcejwt
 
 import (
-	"context"
-
 	"github.com/jfcote87/oauth2/cache"
 	"github.com/jfcote87/salesforce"
 	"github.com/jfcote87/salesforce/auth/jwt"
@@ -12,7 +10,7 @@ import (
 )
 
 // Service reads definitions from keyring and returns new Service
-func Service(ctx context.Context, key string, tokenCache cache.TokenCache) (*salesforce.Service, error) {
+func Service(key string, tokenCache cache.TokenCache) (*salesforce.Service, error) {
 	def, err := secrets.Get(secrets.ServiceSalesforce, key)
 	if err != nil {
 		return nil, err

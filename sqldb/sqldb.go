@@ -3,7 +3,6 @@
 package sqldb
 
 import (
-	"context"
 	"database/sql"
 	"strings"
 
@@ -11,7 +10,7 @@ import (
 )
 
 // Open returns a sql db
-func Open(ctx context.Context, key string) (*sql.DB, error) {
+func Open(key string) (*sql.DB, error) {
 	def, err := secrets.Get(secrets.ServiceSQL, key)
 	if err != nil {
 		return nil, err
